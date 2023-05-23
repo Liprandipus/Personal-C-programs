@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+int main(){
+
+    FILE * file;
+    int n;
+
+    printf("Give the size of the NxN talbe : \n");
+    scanf("%d",&n);
+    srand(time(0)); 
+    int upper = 10000;
+    int lower = 1;
+     file = fopen("numbers.txt", "w");
+
+     if (file == NULL){
+        printf("Error opening the file \n");
+        exit(1);
+     }
+    for (int i = 0 ; i < n*n ; i++){
+        fprintf(file,"%d",rand()% (upper - lower + 1)) + lower;
+        fprintf(file,"\n");
+
+    }
+        
+
+
+    fclose(file);
+
+
+    return 0;
+}
